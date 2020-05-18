@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MasterGridViewTest
 {
-    public class Nota
+    public class Notes
     {
         [DescriptionAttribute("Id")]
         public int Id { get; set; }
@@ -18,20 +18,20 @@ namespace MasterGridViewTest
         [DescriptionAttribute("Segunda nota")]
         public int Nota2 { get; set; }
 
-        public Nota(int id, int nota1, int nota2) 
+        public Notes(int id, int nota1, int nota2) 
         {
             Id = id;
             Nota1 = nota1;
             Nota2 = nota2;
         }
 
-        public Nota() { }
-        public static List<Nota> getNotas() 
+        public Notes() { }
+        public static List<Notes> getNotes() 
         {
-            List<Nota> list = new List<Nota>();
-            list.Add(new Nota(1, 10, 15));
-            list.Add(new Nota(2, 12, 20));
-            list.Add(new Nota(3, 5, 23));
+            List<Notes> list = new List<Notes>();
+            list.Add(new Notes(1, 10, 15));
+            list.Add(new Notes(2, 12, 20));
+            list.Add(new Notes(3, 5, 23));
 
             return list;
         }

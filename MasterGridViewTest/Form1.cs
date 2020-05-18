@@ -20,7 +20,7 @@ namespace MasterGridViewTest
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            MasterGridView<Persona> masterGridView1 = new MasterGridView<Persona>();
+            MasterGridView<Person> masterGridView1 = new MasterGridView<Person>();
             this.Controls.Add(masterGridView1);
         }
     }

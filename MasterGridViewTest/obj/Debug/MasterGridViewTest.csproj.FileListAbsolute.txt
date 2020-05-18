@@ -10,3 +10,9 @@ D:\Sandbox\MasterGridView\MasterGridView\obj\Debug\MasterGridViewTest.pdb
 D:\Sandbox\MasterGridView\MasterGridViewTest\bin\Debug\MasterGridViewTest.exe.config
 D:\Sandbox\MasterGridView\MasterGridViewTest\obj\Debug\MasterGridViewTest.exe
 D:\Sandbox\MasterGridView\MasterGridViewTest\obj\Debug\MasterGridViewTest.pdb
+D:\Sandbox\MasterGridView\MasterGridViewTest\bin\Debug\MasterGridViewTest.exe
+D:\Sandbox\MasterGridView\MasterGridViewTest\bin\Debug\MasterGridViewTest.pdb
+D:\Sandbox\MasterGridView\MasterGridViewTest\obj\Debug\MasterGridViewTest.Form1.resources
+D:\Sandbox\MasterGridView\MasterGridViewTest\obj\Debug\MasterGridViewTest.MasterGridView.Datos.resources
+D:\Sandbox\MasterGridView\MasterGridViewTest\obj\Debug\MasterGridViewTest.Properties.Resources.resources
+D:\Sandbox\MasterGridView\MasterGridViewTest\obj\Debug\MasterGridViewTest.csproj.GenerateResource.Cache

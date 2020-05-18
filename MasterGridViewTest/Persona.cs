@@ -8,50 +8,50 @@ using System.Threading.Tasks;
 
 namespace MasterGridViewTest
 {
-    public class Persona
+    public class Person
     {
         [DescriptionAttribute("Id")]
         public int Id { get; set; }
 
         [DescriptionAttribute("Nombre de la persona")]
-        public string Nombre { get; set; }
+        public string FirstName { get; set; }
 
         [DescriptionAttribute("Apellido de la persona")]
-        public string Apellido { get; set; }
+        public string LastName { get; set; }
 
         [DescriptionAttribute("Notas de la persona")]
-        public List<Nota> lstNotas = new List<Nota>();
+        public List<Notes> lstNotes = new List<Notes>();
 
-        public Persona() 
+        public Person() 
         {
 
         
         }
 
-        public Persona(int id, string nombre, string apellido, List<Nota> notas) 
+        public Person(int id, string firstName, string lastName, List<Notes> notes) 
         {
-            Nombre = nombre;
-            Apellido = apellido;
+            FirstName = firstName;
+            LastName = lastName;
             Id = id;
-            lstNotas = notas;
+            lstNotes = notes;
         }
 
-        public static List<Persona> getPersonas()
+        public static List<Person> getPeople()
         {
-            List<Persona> list = new List<Persona>();
-            list.Add(new Persona(1, "Periodo", "Palotes", Nota.getNotas()));
-            list.Add(new Persona(2, "John", "Doe", Nota.getNotas()));
-            list.Add(new Persona(3, "Juan", "Perez", Nota.getNotas()));
+            List<Person> list = new List<Person>();
+            list.Add(new Person(1, "Morty", "Smith", Notes.getNotes()));
+            list.Add(new Person(2, "John", "Doe", Notes.getNotes()));
+            list.Add(new Person(3, "Rick", "Sanchez", Notes.getNotes()));
 
             return list;
         }
 
-        public static ArrayList getArrayListPersonas()
+        public static ArrayList getArrListPeople()
         {
             ArrayList list = new ArrayList();
-            list.Add(new Persona(1, "Periodo", "Palotes", Nota.getNotas()));
-            list.Add(new Persona(2, "John", "Doe", Nota.getNotas()));
-            list.Add(new Persona(3, "Juan", "Perez", Nota.getNotas()));
+            list.Add(new Person(1, "Periodo", "Palotes", Notes.getNotes()));
+            list.Add(new Person(2, "John", "Doe", Notes.getNotes()));
+            list.Add(new Person(3, "Juan", "Perez", Notes.getNotes()));
             return list;
         }
 

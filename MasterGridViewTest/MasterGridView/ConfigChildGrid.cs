@@ -18,7 +18,7 @@ namespace MasterGridView
 
 
 
-            if (tipo == typeof(Nota))
+            if (tipo == typeof(Notes))
             {
                 //grid.AutoGenerateColumns = true;
                 columns.Add(DataGridColumnFactory.IntegerColumnStyle("Id", "Id"));
