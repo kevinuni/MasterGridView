@@ -1,4 +1,5 @@
-﻿using MasterGridView;
+﻿using KControls;
+using MasterGridViewTest;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MasterGridViewTest
+namespace KControlsTest
 {
     public partial class Form1 : Form
     {
@@ -20,22 +21,20 @@ namespace MasterGridViewTest
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            MasterGridView<Person> dgvPerson = new MasterGridView<Person>();
-            DataGridViewColumnCollection columns = dgvPerson.Columns;            
+            MasterGridView dgvStudents = new MasterGridView();
+            DataGridViewColumnCollection columns = dgvStudents.Columns;            
             columns.Add(DataGridColumnFactory.TextColumnStyle("FirstName", "FirstName"));
             columns.Add(DataGridColumnFactory.TextColumnStyle("LastName", "LastName"));
 
             BindingSource bs = new BindingSource();
-            bs.DataSource = Person.getPeople();
+            bs.DataSource = Student.getStudents();
 
-            dgvPerson.DataSource = bs;
-            dgvPerson.Dock = DockStyle.Fill;
-
-            //ConfigGridStyle.SetDefaultCellStyle(dgvPerson);
-
+            dgvStudents.DataSource = bs;
+            dgvStudents.Dock = DockStyle.Fill;
+            
             //Agregar la grilla
-            this.Controls.Add(dgvPerson);
-            dgvPerson.SetChild();
+            this.Controls.Add(dgvStudents);
+            dgvStudents.SetChild();
 
             
 

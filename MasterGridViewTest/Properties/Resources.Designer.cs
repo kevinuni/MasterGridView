@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MasterGridViewTest.Properties {
+namespace KControlsTest.Properties {
     using System;
     
     

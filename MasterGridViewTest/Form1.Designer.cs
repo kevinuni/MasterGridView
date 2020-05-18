@@ -1,4 +1,4 @@
-﻿namespace MasterGridViewTest
+﻿namespace KControlsTest
 {
     partial class Form1
     {

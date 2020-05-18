@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MasterGridView
+namespace KControls
 {
     public class DetailTabControl : TabControl
     {
@@ -37,8 +37,8 @@ namespace MasterGridView
 
                 if (bs.Current != null)
                 {
-                    //TODO pendiente validar que no se esté usando en otros lados
-                    if (MessageBox.Show("Está seguro de eliminar " + bs.Current.ToString(), "Eliminar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                    //TODO 
+                    if (MessageBox.Show("Are you sure to delete " + bs.Current.ToString(), "Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                     {
                         bs.RemoveCurrent();
                     }
@@ -50,17 +50,13 @@ namespace MasterGridView
 
         internal void AddChildgrid(IList listOfDetail, string name)
         {
-            
-            
-
             DataGridView grid = new DataGridView();
             // poner un contador en el rowheader
             grid.RowPostPaint += cModule.rowPostPaint_HeaderCount;
             // Mostrar en un tooltip la descripción de la Propiedad cuando se pase el mouse por encima
             grid.CellMouseEnter += newGrid_CellMouseEnter;
             grid.CellEndEdit += grid_CellEndEdit;
-
-
+            
             grid.KeyDown += grid_KeyDown;
 
             Type tipo = TypeMethods.HeuristicallyDetermineType(listOfDetail);

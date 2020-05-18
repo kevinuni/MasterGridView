@@ -1,5 +1,4 @@
-﻿using MasterGridViewTest;
-using MasterGridViewTest.MasterGridView;
+﻿using MasterGridViewTest.MasterGridView;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -14,9 +13,9 @@ using System.Windows.Forms;
 
 
 
-namespace MasterGridView
+namespace KControls
 {
-    public class MasterGridView<T> : DataGridView
+    public class MasterGridView : DataGridView
     {
         internal List<int> lstCurrentRows = new List<int>();
         internal int rowDefaultHeight = 22;
@@ -84,7 +83,7 @@ namespace MasterGridView
 
         void MasterGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            MasterGridView<T> grid = (MasterGridView<T>)sender;
+            MasterGridView grid = (MasterGridView)sender;
 
             // Clear the row error in case the user presses ESC.   
             grid.Rows[e.RowIndex].ErrorText = String.Empty;
@@ -151,26 +150,26 @@ namespace MasterGridView
         ToolTip tt = new ToolTip();
         void MasterGridView_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
-            // Mostrar en un tooltip la descripción de la Propiedad cuando se pase el mouse por encima
-            if (e.RowIndex == -1 && e.ColumnIndex != -1 && this.DataSource != null)
-            {
-                var tipo = typeof(T);
-                var property = tipo.GetProperty(this.Columns[e.ColumnIndex].DataPropertyName);
-                var description = TypeMethods.GetDescriptionFromPropertyInfo(property);
-
-                if (string.IsNullOrWhiteSpace(description))
-                {
-                    tt.Hide(this);
-                }
-                else
-                {
-                    tt.SetToolTip(this, description);
-                }
-            }
-            //else
+            //// Show tooltip of Property Description in Header's Column
+            //if (e.RowIndex == -1 && e.ColumnIndex != -1 && this.DataSource != null)
             //{
-            //    tt.Hide(this);
+            //    var tipo = typeof(T);
+            //    var property = tipo.GetProperty(this.Columns[e.ColumnIndex].DataPropertyName);
+            //    var description = TypeMethods.GetDescriptionFromPropertyInfo(property);
+
+            //    if (string.IsNullOrWhiteSpace(description))
+            //    {
+            //        tt.Hide(this);
+            //    }
+            //    else
+            //    {
+            //        tt.SetToolTip(this, description);
+            //    }
             //}
+            ////else
+            ////{
+            ////    tt.Hide(this);
+            ////}
         }
 
 
@@ -178,7 +177,7 @@ namespace MasterGridView
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MasterGridView<T>));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MasterGridView));
 
 
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -188,27 +187,26 @@ namespace MasterGridView
             this.ResumeLayout(false);
         }
 
-        /// <summary>
-        /// Indica si el objeto contiene listas genéricas
-        /// Nota: Tener en cuenta que no todas las listas genéricas se convierten en grillas hijas
-        /// </summary>
-        /// <returns></returns>
-        private bool HasDetailList()
-        {
+        ///// <summary>
+        ///// Indica si el objeto contiene listas genéricas
+        ///// Nota: Tener en cuenta que no todas las listas genéricas se convierten en grillas hijas
+        ///// </summary>
+        ///// <returns></returns>
+        //private bool HasDetailList()
+        //{
+        //    bool hasDetailList = false;
+        //    foreach (FieldInfo field in typeof(T).GetFields())
+        //    {
+        //        if (field.FieldType.IsGenericType 
+        //            && field.FieldType.GetGenericTypeDefinition() == typeof(List<>)
+        //            )
+        //        {
+        //            hasDetailList |= true;
+        //        }
+        //    }
 
-            bool hasDetailList = false;
-            foreach (FieldInfo field in typeof(T).GetFields())
-            {
-                if (field.FieldType.IsGenericType 
-                    && field.FieldType.GetGenericTypeDefinition() == typeof(List<>)
-                    )
-                {
-                    hasDetailList |= true;
-                }
-            }
-
-            return hasDetailList;
-        }
+        //    return hasDetailList;
+        //}
         /// <summary>
         /// Es necesario fijar la grilla hija al mismo nivel de jerarquia que el Mastergrid
         /// </summary>
@@ -226,9 +224,8 @@ namespace MasterGridView
         private void MasterControl_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
             Rectangle rect = new Rectangle(e.RowBounds.X + ((rowDefaultHeight - 16) / 2), e.RowBounds.Y + ((rowDefaultHeight - 16) / 2), 16, 16);
-            //Point point = new Point(rect.Left, rect.Height);
-
-            if (HasDetailList())
+            
+            //if (HasDetailList())
             {
                 if (doCollapseRow)
                 {
