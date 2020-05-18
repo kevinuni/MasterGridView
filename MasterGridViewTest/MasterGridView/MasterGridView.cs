@@ -216,7 +216,7 @@ namespace MasterGridView
         {
             if (this.Parent == null)
             {
-                throw new Exception("El control debe estar en un contenedor.");
+                throw new Exception("The control should be in a container.");
             }
             this.Parent.Controls.Add(detailTabControl);
             detailTabControl.BringToFront();

@@ -16,3 +16,4 @@ D:\Sandbox\MasterGridView\MasterGridViewTest\obj\Debug\MasterGridViewTest.Form1.
 D:\Sandbox\MasterGridView\MasterGridViewTest\obj\Debug\MasterGridViewTest.MasterGridView.Datos.resources
 D:\Sandbox\MasterGridView\MasterGridViewTest\obj\Debug\MasterGridViewTest.Properties.Resources.resources
 D:\Sandbox\MasterGridView\MasterGridViewTest\obj\Debug\MasterGridViewTest.csproj.GenerateResource.Cache
+D:\Sandbox\MasterGridView\MasterGridViewTest\obj\Debug\MasterGridViewTest.csprojResolveAssemblyReference.cache

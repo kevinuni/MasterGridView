@@ -13,13 +13,13 @@ namespace MasterGridViewTest
         [DescriptionAttribute("Id")]
         public int Id { get; set; }
 
-        [DescriptionAttribute("Nombre de la persona")]
+        [DescriptionAttribute("Student First Name")]
         public string FirstName { get; set; }
 
-        [DescriptionAttribute("Apellido de la persona")]
+        [DescriptionAttribute("Student Last Name")]
         public string LastName { get; set; }
 
-        [DescriptionAttribute("Notas de la persona")]
+        [DescriptionAttribute("Califications")]
         public List<Notes> lstNotes = new List<Notes>();
 
         public Person() 
@@ -46,14 +46,7 @@ namespace MasterGridViewTest
             return list;
         }
 
-        public static ArrayList getArrListPeople()
-        {
-            ArrayList list = new ArrayList();
-            list.Add(new Person(1, "Periodo", "Palotes", Notes.getNotes()));
-            list.Add(new Person(2, "John", "Doe", Notes.getNotes()));
-            list.Add(new Person(3, "Juan", "Perez", Notes.getNotes()));
-            return list;
-        }
+       
 
     }
 }

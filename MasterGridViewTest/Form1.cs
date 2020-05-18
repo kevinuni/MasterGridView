@@ -20,8 +20,25 @@ namespace MasterGridViewTest
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            MasterGridView<Person> masterGridView1 = new MasterGridView<Person>();
-            this.Controls.Add(masterGridView1);
+            MasterGridView<Person> dgvPerson = new MasterGridView<Person>();
+            DataGridViewColumnCollection columns = dgvPerson.Columns;            
+            columns.Add(DataGridColumnFactory.TextColumnStyle("FirstName", "FirstName"));
+            columns.Add(DataGridColumnFactory.TextColumnStyle("LastName", "LastName"));
+
+            BindingSource bs = new BindingSource();
+            bs.DataSource = Person.getPeople();
+
+            dgvPerson.DataSource = bs;
+            dgvPerson.Dock = DockStyle.Fill;
+
+            //ConfigGridStyle.SetDefaultCellStyle(dgvPerson);
+
+            //Agregar la grilla
+            this.Controls.Add(dgvPerson);
+            dgvPerson.SetChild();
+
+            
+
         }
     }
 }
