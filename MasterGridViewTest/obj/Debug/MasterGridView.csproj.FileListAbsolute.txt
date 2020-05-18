@@ -1,0 +1,9 @@
+D:\Sandbox\MasterGridView\MasterGridView\bin\Debug\MasterGridView.exe.config
+D:\Sandbox\MasterGridView\MasterGridView\obj\Debug\MasterGridView.Properties.Resources.resources
+D:\Sandbox\MasterGridView\MasterGridView\obj\Debug\MasterGridView.csproj.GenerateResource.Cache
+D:\Sandbox\MasterGridView\MasterGridView\bin\Debug\MasterGridView.exe
+D:\Sandbox\MasterGridView\MasterGridView\bin\Debug\MasterGridView.pdb
+D:\Sandbox\MasterGridView\MasterGridView\obj\Debug\MasterGridView.exe
+D:\Sandbox\MasterGridView\MasterGridView\obj\Debug\MasterGridView.pdb
+D:\Sandbox\MasterGridView\MasterGridView\obj\Debug\MasterGridView.Form1.resources
+D:\Sandbox\MasterGridView\MasterGridView\obj\Debug\MasterGridView.MasterGridView.Datos.resources
