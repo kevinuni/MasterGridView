@@ -150,26 +150,35 @@ namespace KControls
         ToolTip tt = new ToolTip();
         void MasterGridView_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
-            //// Show tooltip of Property Description in Header's Column
-            //if (e.RowIndex == -1 && e.ColumnIndex != -1 && this.DataSource != null)
-            //{
-            //    var tipo = typeof(T);
-            //    var property = tipo.GetProperty(this.Columns[e.ColumnIndex].DataPropertyName);
-            //    var description = TypeMethods.GetDescriptionFromPropertyInfo(property);
+            // Show tooltip of Property Description in Header's Column
+            if (e.RowIndex == -1 && e.ColumnIndex != -1 && this.DataSource != null)
+            {
+                string description = string.Empty;
+                if (DataSource is BindingSource)
+                {
+                    var tipo = ((BindingSource)DataSource).Current.GetType();
+                    var property = tipo.GetProperty(this.Columns[e.ColumnIndex].DataPropertyName);
+                    description = TypeMethods.GetDescriptionFromPropertyInfo(property);
+                }
+                else
+                {
+                    return;
+                }
 
-            //    if (string.IsNullOrWhiteSpace(description))
-            //    {
-            //        tt.Hide(this);
-            //    }
-            //    else
-            //    {
-            //        tt.SetToolTip(this, description);
-            //    }
+                if (string.IsNullOrWhiteSpace(description))
+                {
+                    tt.Hide(this);
+                }
+                else
+                {
+                    tt.SetToolTip(this, description);
+                }
+
+            }
+            //else
+            //{
+            //    tt.Hide(this);
             //}
-            ////else
-            ////{
-            ////    tt.Hide(this);
-            ////}
         }
 
 
@@ -187,26 +196,35 @@ namespace KControls
             this.ResumeLayout(false);
         }
 
-        ///// <summary>
-        ///// Indica si el objeto contiene listas genéricas
-        ///// Nota: Tener en cuenta que no todas las listas genéricas se convierten en grillas hijas
-        ///// </summary>
-        ///// <returns></returns>
-        //private bool HasDetailList()
-        //{
-        //    bool hasDetailList = false;
-        //    foreach (FieldInfo field in typeof(T).GetFields())
-        //    {
-        //        if (field.FieldType.IsGenericType 
-        //            && field.FieldType.GetGenericTypeDefinition() == typeof(List<>)
-        //            )
-        //        {
-        //            hasDetailList |= true;
-        //        }
-        //    }
+        /// <summary>
+        /// Indica si el objeto contiene listas genéricas
+        /// Nota: Tener en cuenta que no todas las listas genéricas se convierten en grillas hijas
+        /// </summary>
+        /// <returns></returns>
+        private bool HasDetailList()
+        {
+            bool hasDetailList = false;
 
-        //    return hasDetailList;
-        //}
+            Type tipo = null;
+
+            if (DataSource is BindingSource)
+            {
+                tipo = ((BindingSource)DataSource).Current.GetType();
+            }
+
+            foreach (FieldInfo field in tipo.GetFields())
+            {
+                if (field.FieldType.IsGenericType
+                    && field.FieldType.GetGenericTypeDefinition() == typeof(List<>)
+                    )
+                {
+                    hasDetailList |= true;
+                }
+            }
+
+            return hasDetailList;
+        }
+
         /// <summary>
         /// Es necesario fijar la grilla hija al mismo nivel de jerarquia que el Mastergrid
         /// </summary>
@@ -225,7 +243,7 @@ namespace KControls
         {
             Rectangle rect = new Rectangle(e.RowBounds.X + ((rowDefaultHeight - 16) / 2), e.RowBounds.Y + ((rowDefaultHeight - 16) / 2), 16, 16);
             
-            //if (HasDetailList())
+            if (HasDetailList())
             {
                 if (doCollapseRow)
                 {

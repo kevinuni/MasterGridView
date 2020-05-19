@@ -20,9 +20,8 @@ namespace KControlsTest
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {
-            MasterGridView dgvStudents = new MasterGridView();
-            DataGridViewColumnCollection columns = dgvStudents.Columns;            
+        {   
+            DataGridViewColumnCollection columns = dgvStudents.Columns;
             columns.Add(DataGridColumnFactory.TextColumnStyle("FirstName", "FirstName"));
             columns.Add(DataGridColumnFactory.TextColumnStyle("LastName", "LastName"));
 
@@ -31,12 +30,12 @@ namespace KControlsTest
 
             dgvStudents.DataSource = bs;
             dgvStudents.Dock = DockStyle.Fill;
-            
+
             //Agregar la grilla
             this.Controls.Add(dgvStudents);
             dgvStudents.SetChild();
 
-            
+
 
         }
     }
